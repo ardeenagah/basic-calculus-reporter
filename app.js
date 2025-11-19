@@ -1,5 +1,5 @@
 // Configuration - REPLACE WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw4vVW6WQqSria2mHXzaY31oN2boUVRpN5AiyinIkfw98VshhFKImc7UtKJgyG8bhpFgQ/exec';
 
 // State management
 let currentWeek = '';
@@ -260,3 +260,4 @@ function exportAllData() {
     a.download = 'basic-calculus-reporters-backup.json';
     a.click();
 }
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a73e8">
+    <meta name="description" content="Basic Calculus Reporting Schedule Form for Grade 11 STEM">
+    
+    <title>Basic Calculus Reporter Form</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- iOS PWA Support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📚 Basic Calculus</h1>
+            <h2>Reporting Schedule Form</h2>
+            <p>Grade 11 STEM | SY 2025-2026</p>
+        </header>
+
+        <!-- Teacher Info Form -->
+        <div class="teacher-info card">
+            <h3>👨‍🏫 Teacher & Class Information</h3>
+            <div class="form-group">
+                <label for="teacherName">Teacher's Name:</label>
+                <input type="text" id="teacherName" placeholder="Enter teacher name" required>
+            </div>
+            <div class="form-group">
+                <label for="section">Class Section:</label>
+                <input type="text" id="section" placeholder="e.g., Grade 11 - Einstein" required>
+            </div>
+        </div>
+
+        <!-- Week Selector -->
+        <div class="week-selector card">
+            <h3>📅 Select Reporting Week</h3>
+            <select id="weekSelector" class="week-dropdown">
+                <option value="">-- Choose Week --</option>
+                <option value="week1">Week 1 (Nov 19-22, 2025): Limits ng Function</option>
+                <option value="week2">Week 2 (Nov 25-28, 2025): Special Limits</option>
+                <option value="week3">Week 3 (Dec 2-5, 2025): Continuity</option>
+                <option value="week4">Week 4 (Jan 5-8, 2026): Introduction to Derivatives</option>
+                <option value="week5">Week 5 (Jan 12-15, 2026): Applications ng Derivatives</option>
+                <option value="week6">Week 6 (Jan 16, 2026): Implicit Differentiation</option>
+            </select>
+        </div>
+
+        <!-- Reporting Schedule Container -->
+        <div id="scheduleContainer"></div>
+
+        <!-- Status Message -->
+        <div id="statusMessage" class="status-message"></div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>💾 Data saves automatically to Google Sheets</p>
+            <p class="connection-status" id="connectionStatus">
+                <span class="status-dot online"></span> Online
+            </p>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Saving to Google Sheets...</p>
+    </div>
+
+    <script src="schedule-data.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('Service Worker registered', reg))
+                .catch(err => console.log('Service Worker registration failed', err));
+        }
+    </script>
+</body>
+</html>
